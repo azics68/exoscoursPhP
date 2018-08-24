@@ -1,0 +1,32 @@
+ var scrollRow = document.getElementById('mapClick').getElementsByTagName('tr');
+
+ function goToMarker(scrollRow){
+
+    var distance = scrollRow.offsetTop;
+
+    window.scrollTo(0, distance);
+}
+
+ map.addListener('bounds_changed', function() {
+     window.setTimeout(function() {
+
+            }, 3000);
+ });
+
+ startMarker.addListener('click', function(){
+      map.setZoom(19);
+      map.setCenter(startMarker.getPosition());
+
+    goToMarker(scrollRow);
+
+}, true);
+
+lastMarker.addListener('click', function(){
+      map.setZoom(19);
+      map.setCenter(lastMarker.getPosition());
+                        
+   goToMarker(scrollRow[lastMarker]);
+
+}, true);
+
+etc..................
