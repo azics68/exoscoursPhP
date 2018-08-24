@@ -1,10 +1,16 @@
- var scrollRow = document.getElementById('mapClick').getElementsByTagName('tr');
+for ( var j = 0; j < jsTableRow.length; j++){
+     	 
+     var index = jsTableRow[j].rowIndex;
 
- function goToMarker(scrollRow){
+     var scrollRows = document.getElementById('mapClick').getElementsByTagName('tr');
 
-    var distance = scrollRow.offsetTop;
+     const rows = scrollRows[index];              
 
-    window.scrollTo(0, distance);
+function goToMarker(row){
+
+ 		const distance = row.offsetTop;
+
+ 		jsTableRow.scrollTo(0, distance);
 }
 
  map.addListener('bounds_changed', function() {
@@ -17,7 +23,7 @@
       map.setZoom(19);
       map.setCenter(startMarker.getPosition());
 
-    goToMarker(scrollRow);
+    goToMarker(rows[startMarker]);
 
 }, true);
 
@@ -25,7 +31,7 @@ lastMarker.addListener('click', function(){
       map.setZoom(19);
       map.setCenter(lastMarker.getPosition());
                         
-   goToMarker(scrollRow[lastMarker]);
+   goToMarker(rows[lastMarker]);
 
 }, true);
 
